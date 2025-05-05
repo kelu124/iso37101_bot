@@ -1,0 +1,2 @@
+PyPDF2==1.26.0
+truepolyglot @ git+https://github.com/ansemjo/truepolyglot@3940758a9e70c9670865e307b015216c3383c63a

@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MUW Poster
+% LaTeX Template
+% Version 1.0 (31/08/2016)
+% (Based on Version 1.0 (31/08/2015) of the Jacobs Portrait Poster
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Created by:
+% Nicolas Ballarini, CeMSIIS, Medical University of Vienna
+% nicoballarini@gmail.com
+% http://statistics.msi.meduniwien.ac.at/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\footer#1{\def\insertfooter{#1}}
+%--------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%--------------------------------------------------------------------------------------
+
+\documentclass[final]{beamer}
+
+
+
+\usepackage[scale=1.150]{beamerposter} % Use the beamerposter package
+\usetheme{MUWposter} % Use the MUWposter theme supplied with this template
+
+% Include a logo of your project if desired
+\logo{\pgfputat{\pgfxy(-15,108)}{\pgfbox[center,base]{\includegraphics[width=12cm]{pbn.png}}}}  
+
+
+\usepackage{multicol}
+\usepackage{array}
+%The following two are column definitions for the aknowledgements section
+\newcolumntype{L}{>{\arraybackslash}m{22cm}}
+\newcolumntype{S}{>{\arraybackslash}m{5cm}}
+\usepackage{pgf}  
+\usepackage{mathtools}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{exscale}
+\usepackage{xcolor}
+\usepackage{ushort}
+\usepackage{setspace}
+\usepackage[square,numbers]{natbib}
+\usepackage{url}
+\bibliographystyle{abbrvnat}
+\renewcommand{\vec}[1]{\ushort{#1}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\definecolor{greenMUW}{RGB}{60,191,174}
+\definecolor{blueMUW}{RGB}{17,29,79}
+\definecolor{skinMUW}{RGB}{254,228,217}
+\definecolor{hellblauMUW}{RGB}{95,180,229}
+
+%-----------------------------------------------
+%  START Set the colors
+%  Uncomment to apply colors you want to use.
+%-----------------------------------------------
+\colorlet{themecolor}{greenMUW}
+\usebackgroundtemplate{}
+
+%\colorlet{themecolor}{skinMUW}
+%\colorlet{themecolor}{blueMUW}
+%\usebackgroundtemplate{\includegraphics{MUW_skin.pdf}}
+
+%%\colorlet{themecolor}{blueMUW}
+%\colorlet{themecolor}{hellblauMUW}
+%\usebackgroundtemplate{\includegraphics{MUW_hellblau.pdf}}
+%-----------------------------------------------
+%  END Set the colors
+%-----------------------------------------------
+
+
+%-----------------------------------------------
+%  START Set the width of the columns
+%-----------------------------------------------
+\setlength{\paperwidth}{33.1in} % A0 width: 46.8in
+\setlength{\paperheight}{46.8in} % A0 height: 33.1in
+\newlength{\sepmargin}
+\newlength{\sepwid}
+\newlength{\onecolwid}
+\newlength{\twocolwid}
+\newlength{\threecolwid}
+
+% The following measures are used for 2 columns
+\setlength{\sepmargin}{0.055\paperwidth} % Separation width (white space) between columns
+\setlength{\sepwid}{0.03\paperwidth} % Separation width (white space) between columns
+\setlength{\onecolwid}{0.43\paperwidth} % Width of one column
+\setlength{\twocolwid}{0.9\paperwidth} % Width of two columns
+
+%-----------------------------------------------------------
+% The following measures are used for 3 columns
+%\setlength{\sepmargin}{0.06\paperwidth} % Separation width (white space) between columns
+%\setlength{\sepwid}{0.02\paperwidth} % Separation width (white space) between columns
+%\setlength{\onecolwid}{0.28\paperwidth} % Width of one column
+%\setlength{\twocolwid}{0.58\paperwidth} % Width of two columns
+%\setlength{\threecolwid}{0.88\paperwidth} % Width of three columns
+%\setlength{\columnsep}{30pt}
+
+%-----------------------------------------------
+%  END Set the width of the columns
+%-----------------------------------------------
+
+\usepackage[absolute]{textpos}
+%--------------------------------------------------------------------------------------
+%	TITLE SECTION 
+%--------------------------------------------------------------------------------------
+\setbeamertemplate{title}[left]
+\setbeamertemplate{frametitle}[default][left]
+%\setmainfont{Georgia}
+
+\title{Using Generative AI to help PROBONO accelerating Green Building Neighbourhoods  assessments using the ISO 37100 series and LLMs. }} % Poster title
+
+\author{Luc Jonveaux} % Author(s)
+
+\institute{The Integrator-centric approach for realising innovative energy efficient buildings in connected sustainable green neighbourhoods project } % Institution(s)
+%--------------------------------------------------------------------------------------
+
+
+
+
+\begin{document}
+\textblockorigin{10mm}{10mm} % start everything near the top-left corner
+%% https://cordis.europa.eu/project/id/101037075/
+  \addtobeamertemplate{block end}{}{\vspace*{1ex}} % White space under blocks
+  \addtobeamertemplate{block alerted end}{}{\vspace*{0ex}} % White space under highlighted (alert) blocks
+  \setlength{\belowcaptionskip}{2ex} % White space under figures
+  \setlength\belowdisplayshortskip{1ex} % White space under equations
+  
+  
+
+
+      \begin{columns}[t] % The whole poster consists of two major columns
+	  
+      \begin{column}{\sepmargin}\end{column}
+      
+	    \begin{column}{\onecolwid} % The first column
+
+\vspace{4.5cm}
+		  \begin{block}{Objective and Context}
+          %\begin{multicols}{2}
+\textbf{The main activity that needs to be streamlined is the review of the content provided by the project stakeholders to create a mapping of their content projected on the Sustainability Purposes and Issues map.}
+
+The Horizon 2020 project \href{https://doi.org/10.3030/101037075}{PROBONO project} (Grant agreement 101037075) is working on the design and operation of systems that enable the growth of green building neighbourhoods (GBNs). Progress could be accelerated through a work package-agnostic approach that allows understanding what GBNs can be, making the connection between buildings and neighbourhoods, and establishing a link between the different work packages. A careful review of the literature and existing resources has shown that an important framework in which GBNs can be enabled is the framework defined in “ISO 37101: Management Systems for Sustainable Development in Communities” which defines 6 Sustainability purposes by 12 sustainability issues. This provides a consistent framework in which ambitions, strategies, actions and 'sustainability elements' can be mapped, from buildings to megacities.
+
+We explore how we have used new technologies, including Large Language Models (LLMs), to consolidate a knowledge base for sustainability assessment to demonstrate the feasibility of using LLMs for urban assessments.
+\end{block}
+
+\begin{block}{Disclaimer}
+Please note that this document is a research-based study conducted by knowledge management researchers and not by subject matter experts. Our findings are presented with the intention of informing and contributing to the dialogue on Green Building Neighbourhoods (or Smart Sustainable Communities) strategies. They are indicative and should be used as a preliminary guide. We encourage all readers to seek advice from qualified professionals to confirm and explore these findings further.
+
+          %\end{multicols}
+          \end{block}
+        
+          
+          
+          \begin{block}{Results}
+          %\begin{multicols}{2}
+
+This exploratory approach enables a consistent, time-efficient process where an LLM drafts an assessment and provides a knowledge base to evaluators, enabling a cross-cutting mechanism to capture the project’s GBN ambitions, technologies, digital twin use cases, behavioural innovations and key actionable outcomes in a common framework. This in turn enables a focus on solving problems and breaking silos, and provides Living Labs with an internationally standardised check of alignment between their Vision and Roadmap.
+
+
+
+          %\end{multicols}
+          \end{block}
+         
+         \end{column}
+                  
+                  
+        % SEparator column
+         \begin{column}{\sepwid}  \end{column}
+         
+         
+         
+         
+         \begin{column}{\onecolwid} %The second column
+\vspace{4.5cm}
+         \begin{block}{Technical details}
+         
+We propose to use LLMs via a custom prompt, containing the definitions of the  6 sustainability “purposes” and 12 communities “issues”, to automate the mapping of the elements described above in a consistent way. Technically, this requires the use of an LLM service (OpenAI) or local LLMs (e.g. Mistral running locally) to execute the prompt. So far, OpenAI’s API has the advantage of “ functions calling” which allows for standardised formatted responses. The responses are mapped to a PROBONO ontology that captures not only the ISO37101 framework but also the scales of the actions.
+
+As the responses are automated, the system outputs an Excel file from the knowledge base that contains the assessment in the form of a table and a visual representation that can be reviewed by human experts. After review and approval, this assessment is parsed and used to update the knowledge base.
+
+The tool also provides a "matching" solution to identify initiatives that best contribute to (and overlap with) a target vision.
+
+\end{block}
+         \begin{block}{Demo dataset}
+          %\begin{multicols}{2}
+This tool is accompanied by its application to some of the "Paris participatory budgets" and a web app that allows users to explore the catalogue of initiatives.
+
+
+                               \end{block}
+          
+          
+          \begin{block}{Next steps}
+          
+Later, one can also consider using the peer-reviewed database of entries as a basic element in a more coherent tool for evaluating entries, used for example as input for training a smaller language model or as support for professionals. We could also think about gamification opportunities opened up by this simplified yet professional and consistent approach.
+
+We hope that the release of the Paris initiatives under the (\href{https://opendatacommons.org/licenses/odbl/}{Open Database License (ODbL)}) and the code under a \href{https://www.gnu.org/licenses/gpl-3.0.html}{GPL v3} license will drive the use of this approach and that urban professionals can use this to identify, map and share useful, professionally recognised sustainability initiatives.
+          \end{block}
+          
+      \end{column}
+      
+      \begin{column}{\sepmargin} \end{column}
+      \end{columns} 
+       
+      \begin{columns}[t] % Split up the two columns wide column again
+      
+      \begin{column}{\sepmargin} \end{column}
+        \begin{column}{\onecolwid} % The first column
+        \vspace{2.cm}
+			\begin{block}{\large Acknowledgements}
+                    We  gratefully  acknowledge  the  funding  support  of  the  European  Union Horizon 2020 research project PROBONO under grant agreement no.  101037075. Thank you to the PROBONO team.
+                    %\begin{center}
+				%		\begin{tabular}{SL}
+			%				\includegraphics[width=\linewidth]{Flag_of_Europe.png}  &
+			%				\footnotesize This project has received funding from the  grant agreement No 11111.
+			%			\end{tabular}
+			%		\end{center}
+				\end{block}	
+                \vspace*{-0.9cm}
+				\begin{alertblock}{\large Contact Information}
+                \vspace*{-0.5cm}
+					\begin{footnotesize}
+					\begin{itemize}
+						\item \href{mailto:luc.jonveaux@mottmac.com}{contact@probonoh2020.eu}
+						\item \href{https://www.probonoh2020.eu/}{www.probonoh2020.eu}
+					\end{itemize}
+					\end{footnotesize}	
+					
+				\end{alertblock}
+		    \end{column} % End of the first column
+			\begin{column}{\sepwid}\end{column} % Empty spacer column
+			\begin{column}{\onecolwid} % Begin a column 
+             \vspace{2.cm}
+              \begin{block}{\large Read more}
+			  %\vspace*{-0.5cm}
+             
+              	\nocite{*} % Insert publications even if they are not cited in the poster
+					
+                    	%\bibliographystyle{plainurl}
+						\href{https://doi.org/10.48550/arXiv.2411.00208}{Using Large Language Models for a standard assessment mapping for sustainable communities}
+      
+				\end{block} 
+    \begin{block}{\large Note(s)}
+			  %\vspace*{-0.5cm}
+              	\nocite{*} % Insert publications even if they are not cited in the poster
+					%{\footnotesize
+                    	%\bibliographystyle{plainurl}
+						This PDF can be renamed as a ZIP file to extract source code for this document and for the solution.
+      % @LJ: For this, see https://github.com/ansemjo/truepolyglot
+      %}
+				\end{block} 
+			\end{column} % End of the second column
+            
+			\begin{column}{\sepmargin}\end{column} % Empty spacer column
+            
+            
+\end{columns} % End of all the columns in the poster
+
+\begin{picture} (-5cm,-5cm) (-3.5cm, 4.cm)
+\put(0.5cm, 0.5cm) {\includegraphics [width=5cm]{eu.png}} 
+\end{picture}
+\begin{textblock}{12}(1.8,15.24)
+{\fontsize{28pt}{24pt}\selectfont  This project has received funding from the European Union’s Horizon 2020 Europe Research and Innovation programme under Grant Agreement No 101037075. This output reflects only the author’s view, and the European Union cannot be held responsible for any use that may be made of the information contained therein.}
+\end{textblock}
+
+\end{document}
+
