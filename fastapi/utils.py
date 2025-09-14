@@ -6,8 +6,14 @@ import os
 
 def getCatalogue():
     catalogue_un = pd.read_parquet("sample_data/t35_bp_iso.parquet.gzip").drop_duplicates()
+    catalogue_un["data_src"] = "T3.5"
     catalogue_deux = pd.read_parquet("sample_data/uc.parquet.gzip").drop_duplicates()
-    df = pd.concat([catalogue_un,catalogue_deux]).reset_index(drop=True)
+    catalogue_deux["data_src"] = "UseCases"
+    catalogue_trois = pd.read_parquet("sample_data/paris.parquet.gzip").drop_duplicates()
+    catalogue_trois["data_src"] = "ParisBudget"
+    catalogue_quatre = pd.read_parquet("sample_data/pbn_activities.parquet.gzip").drop_duplicates()
+    catalogue_quatre["data_src"] = "PBNActivities"
+    df = pd.concat([catalogue_un,catalogue_deux,catalogue_trois,catalogue_quatre]).reset_index(drop=True)
     df.Origin = df.Origin.apply(lambda x: x.replace("ZP_UCS--",""))
     return df
 
