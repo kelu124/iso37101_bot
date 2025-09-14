@@ -1,0 +1,11 @@
+.ipynb_checkpoints
+__pycache__
+.env
+env
+venv
+.venv
+cache
+.~lock*
+APIKEY.txt
+
+fly.toml
