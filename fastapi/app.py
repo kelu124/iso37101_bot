@@ -34,6 +34,11 @@ is_prod = os.environ.get('IS_HEROKU', None)
 async def returnssrcs():
     return {"available_sources": srcs}
 
+@app.get("/version/")
+async def returnssrcs():
+    return {"v": 2.0, "date": "2025-09-14", "changelog": "Added more sources, and filtering by data source."}
+
+
 @app.post("/get_recommendations/")
 async def process_table(table_input: TableInput):
     # Access the validated data
