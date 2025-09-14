@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pbn_37k"
+version = "0.2.0"
+description = "Analysing urban initiatives"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src","lib"]
+
+[tool.setuptools.package-data]
+mylib = ["data/*"]

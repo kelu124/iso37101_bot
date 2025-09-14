@@ -1,5 +1,4 @@
 import pandas as pd
-from owlready2 import *
 import numpy as np
 import json
 import glob, os
@@ -11,10 +10,16 @@ from openpyxl.styles import Alignment
 
 from .hlp import getXY
 
+from importlib import resources
+path_to_defs = resources.files("pbn_37k.data.definitions").joinpath("content.md")
+path_to_xls_template = resources.files("pbn_37k.data.template").joinpath("template.xlsx")
 
 
-def createExcel(dfUC,PATHOUT,coverTitle,coverPlace,coverTopic):
+def createExcel(dfUC, PATHOUT, coverTitle, coverPlace, coverTopic):
 
+    if len(dfUC) == 0:
+        print("Empty dataframe, won't be able to create a report")
+        return "Empty dataframe, won't be able to create a report"
     templatePos = {}
     templatePos["activity"] = "C4"
     templatePos["Title"] = "C5"
@@ -24,14 +29,11 @@ def createExcel(dfUC,PATHOUT,coverTitle,coverPlace,coverTopic):
     templatePos["Review"] = "C8"
     templatePos["initItem"]= 11
 
-    X, Y, terms = getXY(PATH="doc/definitions/content.md")
+    X, _, terms = getXY(PATH=path_to_defs)
     inv_terms = {v: k for k, v in terms.items()}
 
-    wb = load_workbook('doc/template/template.xlsx')
+    wb = load_workbook(path_to_xls_template)
 
-    REVIEWTITLE = "Review of DUBLIN Vision" # "Review of Aarhus vision"
-    PLACE       = "DUBLIN" # "Aarhus"
-    CONTENT     = "Deliverable" 
     dfUC["Source"] = dfUC["Source"].apply(lambda x: str(x).strip().strip(".").strip().strip(".").strip().strip(".").strip().strip(".").strip().strip(".").strip().strip("."))
     dfUC["ID"] = dfUC.Source.apply(lambda x: str(hashlib.md5(str(x).encode("utf-8")).hexdigest()))
     TABS = []

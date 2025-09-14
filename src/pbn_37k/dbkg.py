@@ -1,17 +1,19 @@
 import glob
 import pandas as pd
 
-from owlready2 import *
-import numpy as np
+
 import pandas as pd
 import json
 import glob, os, re
 import hashlib
 
+from importlib import resources
+
+path_to_defs = resources.files("pbn_37k.data.definitions").joinpath("content.md")
 
 from .hlp import getXY
 
-X, Y, terms = getXY(PATH="./doc/definitions/content.md")
+X, Y, terms = getXY(PATH=path_to_defs)
 
 
 def consolidateBits(PATH="./data/xls/"):

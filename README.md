@@ -6,16 +6,20 @@ This works presents a tool to support a new approach to urban sustainability ass
 This code and data have been used in the article [Using Large Language Models for a standard assessment mapping for sustainable communities](https://doi.org/10.48550/arXiv.2411.00208).
 
 
+# Installation
+
+`pip install -e .`
+
 # What about the code
 
 The tool provides the following features:
-* [Review source content](0.FullRun.ipynb) (text) and map it on the 12x6 grid.
+* Review source content and map it on the 12x6 grid.
 * Produce excel files for human review of the LLM-generated content
 * Visualize the map
 * Import human-reviewed excel file
-* [Find initiatives](1.Search.ipynb) that match users requirements, based on the grid.
-* An use case example is included, under the form of a Streamlit-based visualisation tool 
- 
+* Find initiatives that match users requirements, based on the grid.
+  * An use case example is included, under the form of a Streamlit-based visualisation tool 
+
 This relies on definitions inspired by the standard, but adapted to a specific context, that of the PROBONO project. Further modifications more aligned to specific context can be made by users.
 
 Calls to OpenAI rely on a custom tool (OAI) developped outside of this project. It should be straightforward to update the calls to LLMs to streamline the whole process and only use existing, widespread tools (eg langchain). This is only a legacy at the time when other libraries did not propose the options they offer today.
@@ -40,11 +44,6 @@ And the processed data is stored at:
  
 This work has been used in the PROBONO project (doi: 10.3030/101037075 ), which has received funding from the European Union’s Horizon 2020 Europe Research and Innovation programme under Grant Agreement No 101037075. This output reflects only the author’s view, and the European Union cannot be held responsible for any use that may be made of the information contained therein. 
 
-# Licence
-
-Code and datasets are under two different licenses.
-* _Dataset_ refers to any tabular data created from the `bp_projets_gagnants`  dataset.
-* _Code_ refers to any Notebook or Python files. 
 
 ## Disclaimer(s)
 
@@ -53,7 +52,7 @@ This project is distributed WITHOUT ANY EXPRESS OR IMPLIED WARRANTY, INCLUDING O
 * Human in the loop validation, checks and approval are required in any case.
 * You will have to implement your own controls, including the usual guardrails and checks.
  
-## Code
+## License
 
 An LLM-based tool to streamline reviews of urban initiatives using the ISO37101 12x6 approach 
 
@@ -64,9 +63,3 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the [GNU General Public License](LICENSE_GPLv3.0.txt) along with this program. If not, see <https://www.gnu.org/licenses/>.
-
-## Data(sets)
-
-* Original dataset is `bp_projets_gagnants`  from https://opendata.paris.fr/, licensed under  an __[Open Database License](LICENSE_ODbLv1.0.txt) (ODbL)__.
-* The produced dataset is therefore _1. Attributing the work to the dataset above_, _2. share(d)-alike_ under the same license, and _3. kept open_.
-* Summary of the license at https://opendatacommons.org/licenses/odbl/summary/

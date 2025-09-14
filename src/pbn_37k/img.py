@@ -15,6 +15,9 @@ import matplotlib.image as image
 from PIL import Image
 
 
+from importlib import resources
+path_to_defs = resources.files("pbn_37k.data.definitions").joinpath("content.md")
+
 
 def brandedImg(df,dfRef=pd.DataFrame(),title="Placeholder",imgPath="tmp.png"):
     plt, ax = createImg(df,dfRef,title)
@@ -55,7 +58,7 @@ def createImg(df,dfRef=pd.DataFrame(),title="Placeholder"):
     matplotlib.rcParams.update({'font.size': fontsize,
                             'font.family': 'sans-serif'})
 
-    X, Y, terms = getXY(PATH="doc/definitions/content.md")
+    X, Y, terms = getXY(PATH=path_to_defs)
 
     x = "Purpose"
     y = "Issue"
@@ -101,7 +104,8 @@ def createImg(df,dfRef=pd.DataFrame(),title="Placeholder"):
             label=bin_dic[1])
     l=ax.legend(loc='center left', bbox_to_anchor=(1, 0.5),
             fancybox=True, shadow=False, ncol=1,prop=fontprop, fontsize=24)
-    l.legendHandles[0]._sizes = l.legendHandles[1]._sizes = [800]
+    l.legend_handles[0]._sizes = [800]
+    l.legend_handles[1]._sizes = [800]
 
     if len(dfRef):
 
@@ -134,7 +138,8 @@ def createImg(df,dfRef=pd.DataFrame(),title="Placeholder"):
     'Responsible resource use',
     'Social cohesion',
     'Well-being']
-    ax.set_xticklabels(labels,fontproperties=fontprop, fontsize=24, weight='bold')
+    ax.set_xticks(range(len(labels)))
+    ax.set_xticklabels(labels, fontproperties=fontprop, fontsize=24, weight='bold')
 
 
     labels = ['Governance, empowerment\nand engagement',
@@ -149,7 +154,8 @@ def createImg(df,dfRef=pd.DataFrame(),title="Placeholder"):
         'Biodiversity and \necosystem services',
         'Community smart\ninfrastructures',
         'Mobility']
-    ax.set_yticklabels(labels,fontproperties=fontprop, fontsize=24, weight='bold')
+    ax.set_yticks(range(len(labels)))
+    ax.set_yticklabels(labels, fontproperties=fontprop, fontsize=24, weight='bold')
 
     for item in ([ax.title, ax.xaxis.label, ax.yaxis.label] +
              ax.get_xticklabels() + ax.get_yticklabels()):
