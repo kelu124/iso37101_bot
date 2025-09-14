@@ -7,6 +7,7 @@ name = "pbn_37k"
 version = "0.2.0"
 description = "Analysing urban initiatives"
 readme = "README.md"
+license = { file = "LICENSE_GPLv3.0.txt" }
 requires-python = ">=3.11"
 dependencies = []
 
