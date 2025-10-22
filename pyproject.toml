@@ -11,8 +11,17 @@ license = { file = "LICENSE_GPLv3.0.txt" }
 requires-python = ">=3.11"
 dependencies = []
 
+[tool.setuptools]
+include-package-data = true
+
 [tool.setuptools.packages.find]
 where = ["src","lib"]
 
+
 [tool.setuptools.package-data]
-pbn_37k = ["data/*"]
+pbn_37k = [
+    "data/*.json",
+    "data/*.md",
+    "data/**/*.json",
+    "data/**/*.md"
+]
