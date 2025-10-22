@@ -23,5 +23,7 @@ pbn_37k = [
     "data/*.json",
     "data/*.md",
     "data/**/*.json",
-    "data/**/*.md"
+    "data/**/*.md",
+    "data/*.xlsx",
+    "data/**/*.xlsx"
 ]
