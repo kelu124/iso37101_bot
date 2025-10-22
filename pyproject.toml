@@ -15,4 +15,4 @@ dependencies = []
 where = ["src","lib"]
 
 [tool.setuptools.package-data]
-mylib = ["data/*"]
+mylib = ["data/*","src/data/*","src/pbn_37k/data/*"]
