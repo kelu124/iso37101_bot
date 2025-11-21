@@ -13,8 +13,21 @@ def getCatalogue():
     catalogue_trois["data_src"] = "ParisBudget"
     catalogue_quatre = pd.read_parquet("sample_data/pbn_activities.parquet.gzip").drop_duplicates()
     catalogue_quatre["data_src"] = "PBNActivities"
-    df = pd.concat([catalogue_un,catalogue_deux,catalogue_trois,catalogue_quatre]).reset_index(drop=True)
+    catalogue_cinq = pd.read_parquet("sample_data/all_lls.parquet.gzip").drop_duplicates()
+    catalogue_cinq["Origin"] = "LLv2"
+    catalogue_cinq["data_src"] = "AllLLActivities"
+    catalogue_six = pd.read_parquet("sample_data/maptivity.parquet.gzip").drop_duplicates()
+    catalogue_six["data_src"] = "MaptivityActivities"
+    df = pd.concat([catalogue_un,
+                    catalogue_deux,
+                    catalogue_trois,
+                    catalogue_quatre,
+                    catalogue_cinq,
+                    catalogue_six
+                    ]).reset_index(drop=True)
     df.Origin = df.Origin.apply(lambda x: x.replace("ZP_UCS--",""))
+    df["id"] = df['Source_Title'] + df['Type'] + df['Place']
+    df["id"] = df["id"].apply(lambda x: hashlib.md5(x.encode()).hexdigest())
     return df
 
 def getRandomTarget(df):
