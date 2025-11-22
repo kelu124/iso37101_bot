@@ -18,12 +18,15 @@ def getCatalogue():
     catalogue_cinq["data_src"] = "AllLLActivities"
     catalogue_six = pd.read_parquet("sample_data/maptivity.parquet.gzip").drop_duplicates()
     catalogue_six["data_src"] = "MaptivityActivities"
+    catalogue_seven = pd.read_parquet("sample_data/explore.parquet.parquet.gzip").drop_duplicates()
+    catalogue_seven["data_src"] = "ExploreActivities"
     df = pd.concat([catalogue_un,
                     catalogue_deux,
                     catalogue_trois,
                     catalogue_quatre,
                     catalogue_cinq,
-                    catalogue_six
+                    catalogue_six,
+                    catalogue_seven
                     ]).reset_index(drop=True)
     df.Origin = df.Origin.apply(lambda x: x.replace("ZP_UCS--",""))
     df["id"] = df['Source_Title'] + df['Type'] + df['Place']
